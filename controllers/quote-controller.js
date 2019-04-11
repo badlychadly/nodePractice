@@ -11,7 +11,7 @@ quoteController.findAll = (req, res) => {
     // Sends the quotes as a JSON object
     res.json({
       message: 'Success',
-      data: quotes
+      quotes: quotes
     });
   })
   .catch(err => {
@@ -38,6 +38,16 @@ quoteController.findById = (req, res) => {
     res.status(500).json({err});
   });
 };
+
+quoteController.createQuote = (req, res) => {
+    Quote.createQuote(req).then(q => {
+        console.log(q)
+        res.json({
+            message: "Success",
+            data: quote
+        })
+    })
+}
 
 // Export the controller
 module.exports = quoteController;

@@ -24,5 +24,16 @@ Quote.findById = (id) => {
   );
 };
 
+
+Quote.createQuote = (data) => {
+    console.log(data)
+    return db.query('INSERT INTO quotes (quote, author) VALUES ($1, $2)', [data.quote, data.author], (error, results) => {
+        console.log(error, results)
+        if (error) {
+          throw error
+        }
+        })
+}
+
 // Export the Quote object
 module.exports = Quote;

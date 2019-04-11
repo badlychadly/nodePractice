@@ -10,6 +10,8 @@ const quoteController = require('../controllers/quote-controller');
 // Request all quotes, send it to the / route
 quoteRouter.get('/', quoteController.findAll);
 
+quoteRouter.post('/', quoteController.createQuote)
+
 // Request single quote, send it to the /:id route
 quoteRouter.get('/:id', quoteController.findById);
 
