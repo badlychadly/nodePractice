@@ -25,15 +25,16 @@ class App extends Component {
   }
 
   handleOnChange = e => {
-    e.preventDefault()
     this.setState({
       newQuote: {
+        ...this.state.newQuote,
         [e.target.name]: e.target.value
       }
     })
   }
 
   handleOnSubmit = e => {
+    e.preventDefault()
     fetch('http://10.0.0.99:3001/api/quotes', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
@@ -41,12 +42,13 @@ class App extends Component {
     })
     .then(resp => resp.json())
     .then(data => {
-      debugger;
+      // debugger;
     })
   }
 
 
   render() {
+    // debugger;
     return (
       <div className="App">
         {this.renderQuotes(this.state.quotes)}
